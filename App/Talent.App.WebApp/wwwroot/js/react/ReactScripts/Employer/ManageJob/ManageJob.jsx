@@ -13,7 +13,7 @@ export default class ManageJob extends React.Component {
         let loader = loaderData
         loader.allowedUsers.push("Employer");
         loader.allowedUsers.push("Recruiter");
-        //console.log(loader)
+        console.log(loader)
         this.state = {
             loadJobs: [],
             loaderData: loader,
@@ -35,30 +35,68 @@ export default class ManageJob extends React.Component {
         this.init = this.init.bind(this);
         this.loadNewData = this.loadNewData.bind(this);
         //your functions go here
+        this.updateJobs = this.updateJobs.bind(this);
     };
 
     init() {
         let loaderData = TalentUtil.deepCopy(this.state.loaderData)
-        loaderData.isLoading = false;
-        this.setState({ loaderData });//comment this
+       loaderData.isLoading = false;
+       this.setState({ loaderData });//comment this
 
         //set loaderData.isLoading to false after getting data
         //this.loadData(() =>
         //    this.setState({ loaderData })
+           
         //)
-        
-        //console.log(this.state.loaderData)
+        //loaderData.isLoading = false;
+        console.log(this.state.loaderData)
     }
 
     componentDidMount() {
         this.init();
+        this.loadData();
     };
 
     loadData(callback) {
         var link = 'http://localhost:51689/listing/listing/getSortedEmployerJobs';
         var cookies = Cookies.get('talentAuthToken');
        // your ajax call and other logic goes here
+        $.ajax({
+            url: 'http://localhost:51689/listing/listing/getEmployerJobs',
+            headers: {
+                'Authorization': 'Bearer ' + cookies,
+                'Content-Type': 'application/json'
+            },
+            type: "GET",
+            contentType: "application/json",
+            dataType: "json",
+            success: function (res) {
+                /*console.log("respponse data", res)*/
+                let loadJobs = null;
+                if (res.myJobs) {
+                    loadJobs = res.myJobs
+
+                }
+                this.updateJobs(loadJobs)
+
+            }.bind(this),
+            error: function (res) {
+                console.log(res.status)
+            }
+        })
+        this.init()
     }
+    updateJobs(myJobs) {
+
+        let jobs = Object.assign({}, this.state.loadJobs, myJobs)
+
+        this.setState({
+            loadJobs: jobs
+        })
+
+    }
+
+    
 
     loadNewData(data) {
         var loader = this.state.loaderData;
@@ -73,12 +111,28 @@ export default class ManageJob extends React.Component {
             })
         });
     }
-
+    
     render() {
+       // const { loadJobs } = this.state;
         return (
+            <div>
             <BodyWrapper reload={this.init} loaderData={this.state.loaderData}>
-               <div className ="ui container">Your table goes here</div>
-            </BodyWrapper>
+                    <div className="ui container">
+               
+                <JobSummaryCard
+
+                    jobs={this.state.loadJobs}
+                        />
+                   </div>
+                </BodyWrapper>
+                
+            </div>
         )
+    }
+    renderJobItems(jobs) {
+        return jobs.map(job => (
+            <JobSummaryCard key={job.id} job={job} />
+            // Assuming you have a component named JobSummaryCard to render each job item
+        ));
     }
 }

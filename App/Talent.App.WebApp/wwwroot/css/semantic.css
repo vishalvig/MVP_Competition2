@@ -797,13 +797,20 @@ body .ui.inverted::-webkit-scrollbar-thumb {
     -webkit-tap-highlight-color: transparent;
 }
 
-    /*******************************
+
+/*******************************
             States
 *******************************/
-
-    /*--------------
+/*--------------
       Hover
 ---------------*/
+.hide-dropdown-border .ui.selection.dropdown {
+    border: none; /* This will remove the outer border of the dropdown */
+    box-shadow: none; /* This will remove the dropdown shadow if present */
+}
+.black-tag {
+    color: black;
+}
 
     .ui.button:hover {
         background-color: #CACBCD;
