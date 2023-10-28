@@ -31,7 +31,12 @@
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
   </ItemGroup>
-
+	<ItemGroup>
+		<Content Remove="appsettings.json" />
+		<None Include="appsettings.json" />
+		<Content Remove="appsettings.Development.json" />
+		<None Include="appsettings.Development.json" />
+	</ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Talent.Common\Talent.Common.csproj" />
     <ProjectReference Include="..\Talent.Services.Profile\Talent.Services.Profile.csproj" />

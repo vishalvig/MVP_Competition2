@@ -1,0 +1,10 @@
+D:\Talent\Talent.Common\bin\Release\netcoreapp2.0\Talent.Common.deps.json
+D:\Talent\Talent.Common\bin\Release\netcoreapp2.0\Talent.Common.dll
+D:\Talent\Talent.Common\bin\Release\netcoreapp2.0\Talent.Common.pdb
+D:\Talent\Talent.Common\obj\Release\netcoreapp2.0\Talent.Common.csproj.AssemblyReference.cache
+D:\Talent\Talent.Common\obj\Release\netcoreapp2.0\Talent.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\Talent\Talent.Common\obj\Release\netcoreapp2.0\Talent.Common.AssemblyInfoInputs.cache
+D:\Talent\Talent.Common\obj\Release\netcoreapp2.0\Talent.Common.AssemblyInfo.cs
+D:\Talent\Talent.Common\obj\Release\netcoreapp2.0\Talent.Common.csproj.CoreCompileInputs.cache
+D:\Talent\Talent.Common\obj\Release\netcoreapp2.0\Talent.Common.dll
+D:\Talent\Talent.Common\obj\Release\netcoreapp2.0\Talent.Common.pdb

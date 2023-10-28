@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  talent.app.webapp:
+    image: ${DOCKER_REGISTRY-}talentappwebapp
+    build:
+      context: .
+      dockerfile: App\Talent.App.WebApp\Dockerfile

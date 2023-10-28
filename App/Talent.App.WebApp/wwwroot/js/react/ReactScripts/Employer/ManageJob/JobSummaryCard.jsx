@@ -36,7 +36,9 @@ export class JobSummaryCard extends React.Component {
 	selectJob(id) {
 		var cookies = Cookies.get('talentAuthToken');
 		//url: 'http://localhost:51689/listing/listing/closeJob',
+		url: 'https://talentservicestalent21.azurewebsites.net/listing/listing/closeJob'
 	}
+
 	handleSortChange(event, data) {
 		this.setState({
 			sortOrder: data.value,
@@ -79,9 +81,9 @@ export class JobSummaryCard extends React.Component {
 		return (
 			<div>
 			<h1>List of Jobs</h1>
-				<Icon name='filter' /> <Dropdown className="hide-dropdown-border"
+				<Icon name='filter'/> Filter : <Dropdown className="hide-dropdown-border"
 					selection
-					options={[{ key: 'Choose the filter', text: 'Choose the filter', value: 'choose the filter' },]}
+					options={[{ key: 'Choose the filter', text: 'Chose the filter', value: 'choose the filter' },]}
 					value={this.state.default}
 				/>
 				<Icon name='calendar' /> Sort By date : 
@@ -95,8 +97,9 @@ export class JobSummaryCard extends React.Component {
 					onChange={this.handleSortChange}
 					value={this.state.sortOrder}
 				/>
-
+				
 				{this.state.showJobs ? this.renderJobs() : this.renderDisplay()}
+				<br></br>
 			</div>
 			
 			//<div className="job-summary-card">

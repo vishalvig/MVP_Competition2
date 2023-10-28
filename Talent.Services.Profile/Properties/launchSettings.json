@@ -3,7 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:60290/",
+      //"applicationUrl": "http://localhost:60290/",
+      "applicationUrl":"https://talentservicesprofile20231028102202.azurewebsites.net",
       "sslPort": 0
     }
   },
@@ -21,7 +22,8 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:60290/"
+      //"applicationUrl": "http://localhost:60290/"
+      "applicationUrl": "https://talentservicesprofile20231028102202.azurewebsites.net"
     }
   }
 }

@@ -177,7 +177,9 @@ abbr[title] {
     text-decoration: underline dotted;
     /* 2 */
 }
-
+.filter-icon, .filter-dropdown, .sort-dropdown {
+    margin: 10px;
+}
 /**
  * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
  */
